@@ -30,12 +30,14 @@ canvas.ondoubleclick = function(){
       }
   } 
 };
-
-
+  
  canvas.addEventListener('mousemove', function(event) {
      
    e("x_axis").value = event.clientX;
-    e("y_axis").value = event.clientY;
+  e("y_axis").value = event.clientY;
    
 });
 }
+
+ getNewVertex(e("canvas"));
+
