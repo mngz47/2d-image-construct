@@ -39,5 +39,5 @@ canvas.ondoubleclick = function(){
 });
 }
 
- getNewVertex(e("canvas"));
+ getNewVertex(e("2d-canvas"));
 
