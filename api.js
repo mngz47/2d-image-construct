@@ -1,7 +1,7 @@
 
 function getNewVertex(canvas){
 
-canvas.ondoubleclick = function(){
+canvas.ondblclick = function(){
 
   if(e("object_name").value){
       if(e("x_axis").value){
@@ -28,7 +28,9 @@ canvas.ondoubleclick = function(){
             
           }
       }
-  } 
+  }else{
+alert("insert object name");
+  }
 };
   
  canvas.addEventListener('mousemove', function(event) {
