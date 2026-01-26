@@ -68,6 +68,8 @@ function connectVertexes(canvas,x1,y1,x2,y2){
 
 function scriptToCanvas(){
 
+  e("2d-canvas").innerHTML = "";
+
   var stc = e("object_script_txt").value;
   
   if(stc!=""){
@@ -126,7 +128,7 @@ function putNewVertex(canvas,x,y){
 
  var vv =  ne("label");
 
-    vv.innerHTML = "O"
+    vv.innerHTML = "O";
     vv.style.position = "relative";
     vv.style.left = x+"px";
     vv.style.top = y+"px";
