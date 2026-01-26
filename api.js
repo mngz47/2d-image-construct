@@ -18,7 +18,7 @@ canvas.ondblclick = function(){
     }
 
   e("object_script_txt").value +=   
-"Vertex fields\n"+
+"Vertex field\n"+
 "x_axis" + " " +  e("x_axis").value+
 "y_axis" + " " +  e("y_axis").value
       ;
@@ -36,6 +36,51 @@ alert("insert object name");
   e("y_axis").value = event.clientY;
    
 });
+}
+
+function connectVertexes(canvas,x1,y1,x2,y2){
+
+}
+
+function scriptToCanvas(){
+
+  var stc = e("object_script_txt").value;
+  
+  if(stc!=""){
+  if(stc.includes("Define 2d object")) {
+  if(stc.includes("Object name")) {
+  if(stc.includes("Vertex field")) {
+
+    var p_x;
+    var p_y;
+
+    var vertexes = stc.split("Vertex field");
+    for(var a=1;a<vertexes.length();a++){
+
+              
+      
+        if(a<2){
+        putNewVertex(canvas,x,y);
+        }else{
+        putNewVertex(canvas,x,y);
+        connectVertexes(canvas,x1,y1,x2,y2)
+       
+        }
+    }
+
+    
+  }else{
+alert("'Vertex field' not found");
+  } 
+  }else{
+alert("'Object name' not found");
+  } 
+  }else{
+alert("'Define 2d object' not found");
+  }
+  }else{
+alert("Insert script");
+  }
 }
 
 function putNewVertex(canvas,x,y){
