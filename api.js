@@ -57,18 +57,33 @@ function scriptToCanvas(){
     var vertexes = stc.split("Vertex field");
     for(var a=1;a<vertexes.length();a++){
 
-              
-      
-        if(a<2){
-        putNewVertex(canvas,x,y);
-        }else{
-        putNewVertex(canvas,x,y);
-        connectVertexes(canvas,x1,y1,x2,y2)
-       
-        }
-    }
+      if(vertexes[a].includes("x_axis")){
+      if(vertexes[a].includes("y_axis")){
 
-    
+                var x = Math.parseInt(stc.substring(stc.indexOf("x_axis")+6,stc.indexOf("y_axis")).trim());
+                var y = Math.parseInt(stc.substring(stc.indexOf("y_axis")+6,stc.length()).trim());
+                
+                if(a<2){
+        putNewVertex(e("2d-canvas"),x,y);
+                }else{
+        putNewVertex(e("2d-canvas"),x,y);
+
+                  if(p_x && p_y){     
+        connectVertexes(e("2d-canvas"),p_x,p_x,x,y);
+
+                  }  
+      }
+
+                  p_x = x;
+                  p_y = y;
+          
+      }else{
+        alert("'y_axis "+a+"' not found");
+      } 
+      }else{
+        alert("'x_axis "+a+"' not found");
+      } 
+    }
   }else{
 alert("'Vertex field' not found");
   } 
