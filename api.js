@@ -130,8 +130,8 @@ function putNewVertex(canvas,x,y){
 
  var vv =  ne("circle");
 
-    vv.r = "15";
-    vv.cx =  x;
+    vv.r = 15;
+    vv.cx = x;
     vv.cy = y;
     vv.fill = "black";
             
