@@ -117,10 +117,12 @@ function connectVertexes(canvas,x1,y1,x2,y2){
      var vv =  ne("line");
 
     vv.style = "stroke:red;stroke-width:2";
-    vv.x1 = x1;
-    vv.y1 = y1;
-       vv.x2 = x2;
-       vv.y2 = y2;
+
+    vv.setAttribute("x1", x1);          // Center X position
+    vv.setAttribute("y1", y1);
+
+    vv.setAttribute("x2", x2);          // Center X position
+    vv.setAttribute("y2", y2);
             
     canvas.appendChild(vv);
 }
@@ -130,10 +132,10 @@ function putNewVertex(canvas,x,y){
 
  var vv =  ne("circle");
 
-    vv.r = 15;
-    vv.cx = x;
-    vv.cy = y;
-    vv.fill = "black";
+  vv.setAttribute("cx", x);          // Center X position
+  vv.setAttribute("cy", y);          // Center Y position
+  vv.setAttribute("r", 5);        
+  vv.setAttribute("fill", "black");        
             
     canvas.appendChild(vv);
   
