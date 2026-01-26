@@ -81,23 +81,24 @@ function scriptToCanvas(){
     var p_y;
 
     var vertexes = stc.split("Vertex field");
-    for(var a=1;a<vertexes.length();a++){
+    for(var a=1;a<vertexes.length;a++){
 
       if(vertexes[a].includes("x_axis")){
       if(vertexes[a].includes("y_axis")){
 
-                var x = Math.parseInt(stc.substring(stc.indexOf("x_axis")+6,stc.indexOf("y_axis")).trim());
-                var y = Math.parseInt(stc.substring(stc.indexOf("y_axis")+6,stc.length()).trim());
+                var x = Math.parseInt(vertexes[a].substring(vertexes[a].indexOf("x_axis")+6,vertexes[a].indexOf("y_axis")).trim());
+                var y = Math.parseInt(vertexes[a].substring(vertexes[a].indexOf("y_axis")+6,vertexes[a].length()).trim());
                 
                 if(a<2){
         putNewVertex(e("2d-canvas"),x,y);
                 }else{
         putNewVertex(e("2d-canvas"),x,y);
-
                   if(p_x && p_y){     
         connectVertexes(e("2d-canvas"),p_x,p_x,x,y);
-
-                  }  
+                  }else{
+        alert("'vertex "+a+"' not connected");
+     
+                  }
       }
 
                   p_x = x;
