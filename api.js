@@ -129,7 +129,7 @@ function putNewVertex(canvas,x,y){
     vv.innerHTML = "O"
     vv.style.position = "relative";
     vv.style.left = x;
-    vv.style.top = y-150;
+    vv.style.top = y;
             
     canvas.appendChild(vv);
   
