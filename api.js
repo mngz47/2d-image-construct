@@ -33,13 +33,23 @@ alert("insert object name");
  canvas.addEventListener('mousemove', function(event) {
      
    e("x_axis").value = event.clientX;
-  e("y_axis").value = event.clientY;
+   e("y_axis").value = event.clientY;
    
 });
 }
 
 function connectVertexes(canvas,x1,y1,x2,y2){
+//  <line x1="0" y1="0" x2="300" y2="200" style="stroke:red;stroke-width:2" />
 
+     var vv =  ne("line");
+
+    vv.style = "stroke:red;stroke-width:2";
+    vv.x1 = x1;
+    vv.y1 = y1;
+       vv.x2 = x2;
+       vv.y2 = y2;
+            
+    canvas.appendChild(vv);
 }
 
 function scriptToCanvas(){
