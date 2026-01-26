@@ -87,7 +87,7 @@ function scriptToCanvas(){
       if(vertexes[a].includes("y_axis")){
 
                 var x = parseInt(vertexes[a].substring(vertexes[a].indexOf("x_axis")+6,vertexes[a].indexOf("y_axis")).trim());
-                var y = parseInt(vertexes[a].substring(vertexes[a].indexOf("y_axis")+6,vertexes[a].length()).trim());
+                var y = parseInt(vertexes[a].substring(vertexes[a].indexOf("y_axis")+6,vertexes[a].length).trim());
                 
                 if(a<2){
         putNewVertex(e("2d-canvas"),x,y);
