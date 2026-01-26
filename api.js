@@ -9,6 +9,16 @@ canvas.ondblclick = function(){
             
    putNewVertex(canvas,e("x_axis").value,e("y_axis").value);
 
+            //after recieving first point draw lines between vertexes
+            
+            if(p_x && p_y){
+              connectVertexes(e("2d-canvas"),p_x,p_x,e("x_axis").value,e("y_axis").value);
+
+            }else{
+              p_x=e("x_axis").value;
+              p_y=e("y_axis").value;
+            }
+            
       // The script must sync with the canvas to reflect the same image
 
     if(e("object_script_txt").value==""){
@@ -51,6 +61,10 @@ function connectVertexes(canvas,x1,y1,x2,y2){
             
     canvas.appendChild(vv);
 }
+
+    var p_x;
+    var p_y;
+
 
 function scriptToCanvas(){
 
@@ -120,6 +134,10 @@ function putNewVertex(canvas,x,y){
     canvas.appendChild(vv);
   
 }
+
+e("show_on_canvas").onclick = function(){
+    scriptToCanvas();
+  };
 
  getNewVertex(e("2d-canvas"));
 
