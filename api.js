@@ -21,7 +21,7 @@ canvas.ondblclick = function(){
             
       // The script must sync with the canvas to reflect the same image
 
-    if(e("object_script_txt").value==""){
+    if(e("object_script_txt").value.trim()==""){
  e("object_script_txt").value =
             "Define 2d object" +
 "Object name" + " " + e("object_name").value; 
