@@ -128,10 +128,10 @@ function connectVertexes(canvas,x1,y1,x2,y2){
  	//</svg>	
 
      var vvv =  ne("svg");
-      vvv.width = ((x1-x2)>0?(x1-x2):(x2-x1));
-      vvv.height = ((y1-y2)>0?(y1-y2):(y2-y1));
-      vvv.xmlns = "http://www.w3.org/2000/svg";
-
+      vvv.setAttribute("width", ((x1-x2)>0?(x1-x2):(x2-x1))); 
+      vvv.setAttribute("height", ((y1-y2)>0?(y1-y2):(y2-y1)); 
+      vvv.setAttribute("xmlns", "http://www.w3.org/2000/svg"); 
+  
   vvv.appendChild(vv);
     canvas.appendChild(vvv);
 }
@@ -147,9 +147,9 @@ function putNewVertex(canvas,x,y){
   vv.setAttribute("fill", "black");        
 
      var vvv =  ne("svg");
-      vvv.width = (x+10);
-      vvv.height = (y+10);
-      vvv.xmlns = "http://www.w3.org/2000/svg";
+      vvv.setAttribute("width", (x+10)); 
+      vvv.setAttribute("height", (y+10)); 
+      vvv.setAttribute("xmlns", "http://www.w3.org/2000/svg"); 
 
   vvv.appendChild(vv);
     canvas.appendChild(vvv);
