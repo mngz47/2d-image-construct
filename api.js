@@ -139,7 +139,7 @@ function connectVertexes(canvas,x1,y1,x2,y2){
 }
 
 
-function putNewVertex(canvas,x,y){
+function putNewVertexSVG(canvas,x,y){
 
  var vv =  ne("circle");
 
@@ -154,8 +154,22 @@ function putNewVertex(canvas,x,y){
       vvv.setAttribute("xmlns", "http://www.w3.org/2000/svg"); 
 
   vvv.appendChild(vv);
-  document.body.appendChild(vvv);
-    // canvas.appendChild(vvv);
+   canvas.appendChild(vvv);
+}
+
+function putNewVertex(canvas,x,y){
+
+ var vv =  ne("label");
+
+  vv.style.position = "relative";
+  vv.style.borderRadius = "40%";
+  vv.style.width = "40px";
+  vv.style.height = "40px";
+  vv.style.backgroundColor = "black";
+  vv.style.left = x;
+  vv.style.top = y-100;
+  
+   canvas.appendChild(vv);
 }
 
 e("show_on_canvas").onclick = function(){
