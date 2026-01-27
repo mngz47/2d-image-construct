@@ -166,8 +166,8 @@ function putNewVertex(canvas,x,y){
   vv.style.width = "10px";
   vv.style.height = "10px";
   vv.style.backgroundColor = "black";
-  vv.style.left = x+parseInt(e("x_cursor").value);
-  vv.style.top = y+parseInt(e("y_cursor").value);
+  vv.style.left = x+parseInt((e("x_cursor").value?"0":e("x_cursor").value));
+  vv.style.top = y+parseInt((e("y_cursor").value?"0":e("y_cursor").value));
   
    canvas.appendChild(vv);
 }
