@@ -123,8 +123,17 @@ function connectVertexes(canvas,x1,y1,x2,y2){
 
     vv.setAttribute("x2", x2);          // Center X position
     vv.setAttribute("y2", y2);
-            
-    canvas.appendChild(vv);
+
+  //<svg id=2d-canvas style="width:100%;height:100%;border:1px solid black;" xmlns="http://www.w3.org/2000/svg">
+ 	//</svg>	
+
+     var vvv =  ne("svg");
+      vvv.width = ((x1-x2)>0?(x1-x2):(x2-x1));
+      vvv.height = ((y1-y2)>0?(y1-y2):(y2-y1));
+      vvv.xmlns = "http://www.w3.org/2000/svg";
+
+  vvv.appendChild(vv);
+    canvas.appendChild(vvv);
 }
 
 
@@ -136,9 +145,14 @@ function putNewVertex(canvas,x,y){
   vv.setAttribute("cy", y);          // Center Y position
   vv.setAttribute("r", 5);        
   vv.setAttribute("fill", "black");        
-            
-    canvas.appendChild(vv);
-  
+
+     var vvv =  ne("svg");
+      vvv.width = (x+10);
+      vvv.height = (y+10);
+      vvv.xmlns = "http://www.w3.org/2000/svg";
+
+  vvv.appendChild(vv);
+    canvas.appendChild(vvv);
 }
 
 e("show_on_canvas").onclick = function(){
