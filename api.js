@@ -12,7 +12,7 @@ canvas.ondblclick = function(){
             //after recieving first point draw lines between vertexes
             
             if(p_x && p_y){
-              connectVertexes(e("2d-canvas"),p_x,p_x,e("x_axis").value,e("y_axis").value);
+              connectVertexes(e("2d-canvas"),parseInt(p_x),parseInt(p_x),parseInt(e("x_axis").value),parseInt(e("y_axis").value));
 
             }else{
               p_x=e("x_axis").value;
