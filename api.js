@@ -129,7 +129,7 @@ function connectVertexes(canvas,x1,y1,x2,y2){
 
      var vvv =  ne("svg");
       vvv.setAttribute("width", ((x1-x2)>0?(x1-x2):(x2-x1))); 
-      vvv.setAttribute("height", ((y1-y2)>0?(y1-y2):(y2-y1)); 
+      vvv.setAttribute("height", ((y1-y2)>0?(y1-y2):(y2-y1))); 
       vvv.setAttribute("xmlns", "http://www.w3.org/2000/svg"); 
   
   vvv.appendChild(vv);
