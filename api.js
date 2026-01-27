@@ -161,13 +161,13 @@ function putNewVertex(canvas,x,y){
 
  var vv =  ne("label");
 
-  vv.style.position = "relative";
+  vv.style.position = "absolute";
   vv.style.borderRadius = "40%";
-  vv.style.width = "40px";
-  vv.style.height = "40px";
+  vv.style.width = "10px";
+  vv.style.height = "10px";
   vv.style.backgroundColor = "black";
   vv.style.left = x;
-  vv.style.top = y-100;
+  vv.style.top = y;
   
    canvas.appendChild(vv);
 }
