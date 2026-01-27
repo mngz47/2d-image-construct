@@ -154,7 +154,8 @@ function putNewVertex(canvas,x,y){
       vvv.setAttribute("xmlns", "http://www.w3.org/2000/svg"); 
 
   vvv.appendChild(vv);
-    canvas.appendChild(vvv);
+  document.body.appendChild(vvv);
+    // canvas.appendChild(vvv);
 }
 
 e("show_on_canvas").onclick = function(){
