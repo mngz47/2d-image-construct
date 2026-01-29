@@ -1,14 +1,16 @@
 
 function getNewVertex(canvas){
 
-  e("canvas-width").value = canvas.width;
-  e("canvas-height").value = canvas.height;
 
 canvas.ondblclick = function(){
 
   if(e("object_name").value){
       if(e("x_axis").value){
           if(e("y_axis").value){
+
+
+  e("canvas-width").value = canvas.width;
+  e("canvas-height").value = canvas.height;
             
    putNewVertex(canvas,e("x_axis").value,e("y_axis").value);
 
@@ -45,11 +47,11 @@ alert("insert object name");
   
  canvas.addEventListener('mousemove', function(event) {
 
-      var x_c = parseInt(event.clientX)-parseInt(event.offsetX);
-      var y_c = parseInt(event.clientY)-parseInt(event.offsetY);
+   //   var x_c = parseInt(event.clientX)-parseInt(event.offsetX);
+   //   var y_c = parseInt(event.clientY)-parseInt(event.offsetY);
    
-   e("x_axis").value = x_c;
-   e("y_axis").value = y_c;
+   e("x_axis").value = event.offsetX;
+   e("y_axis").value = event.offsetY;
    
 });
 }
