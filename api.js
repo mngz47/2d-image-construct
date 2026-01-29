@@ -277,6 +277,8 @@ function putNewVertexElement(canvas,x,y,element){
   element.style.position = "relative";
   element.style.left = x + "px";
   element.style.top = y + "px";
+  element.style.display = "inline-block";
+  element.title = "x:"+x+",y:"+y;
   //  element.offsetX = x;
   //  element.offsetY = y;
   element.style.borderRadius = "40%";
