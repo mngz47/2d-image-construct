@@ -9,8 +9,8 @@ canvas.ondblclick = function(){
           if(e("y_axis").value){
 
 
-  e("canvas-width").value = canvas.width;
-  e("canvas-height").value = canvas.height;
+  e("canvas-width").value = canvas.offsetWidth;
+  e("canvas-height").value = canvas.offsetHeight;
             
    putNewVertex(canvas,e("x_axis").value,e("y_axis").value);
 
