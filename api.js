@@ -125,6 +125,7 @@ function scriptToCanvasElement(canvas,script,elements){
 
   canvas.style.width = "100%";
   canvas.style.height = "100%";
+  canvas.border = "1px solid black";
 
   
   var stc = script.value;
@@ -237,7 +238,7 @@ function putNewVertex(canvas,x,y){
 
 function putNewVertexElement(canvas,x,y,element){
 
-  element.style.position = "relative";
+  element.style.position = "absolute";
   element.style.left = x;
   element.style.top = y;
   element.style.borderRadius = "40%";
