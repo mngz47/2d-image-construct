@@ -167,11 +167,11 @@ function putNewVertex(canvas,x,y){
   vv.style.height = "10px";
   vv.style.backgroundColor = "black";
 
-  var x_c = parseInt(e("x_cursor").value?e("x_cursor").value:"0");
-  var y_c = parseInt(e("y_cursor").value?e("y_cursor").value:"0");
+  var x_c = parseInt(x)+parseInt(e("x_cursor").value?e("x_cursor").value:"0");
+  var y_c = parseInt(y)+parseInt(e("y_cursor").value?e("y_cursor").value:"0");
   
-  vv.style.left = x+x_c;
-  vv.style.top = y+y_c;
+  vv.style.left = x_c.toString();
+  vv.style.top = y_c.toString();
   
    canvas.appendChild(vv);
 }
