@@ -45,10 +45,10 @@ alert("insert object name");
   
  canvas.addEventListener('mousemove', function(event) {
 
-      var x_c = parseInt(event.clientX)+parseInt(e("x_cursor").value?e("x_cursor").value:"0");
-      var y_c = parseInt(event.clientY)+parseInt(e("y_cursor").value?e("y_cursor").value:"0");
+      var x_c = parseInt(event.clientX)-parseInt(event.offsetX);
+      var y_c = parseInt(event.clientY)-parseInt(event.offsetY);
    
-   e("x_axis").value = event.offsetX;
+   e("x_axis").value = x_c;
    e("y_axis").value = y_c;
    
 });
@@ -227,11 +227,8 @@ function putNewVertex(canvas,x,y){
   vv.style.height = "10px";
   vv.style.backgroundColor = "black";
 
-  var x_c = parseInt(x)+parseInt(e("x_cursor").value?e("x_cursor").value:"0");
-  var y_c = parseInt(y)+parseInt(e("y_cursor").value?e("y_cursor").value:"0");
-  
-  vv.style.left = x_c.toString();
-  vv.style.top = y_c.toString();
+  vv.style.left = x;
+  vv.style.top = y;
   
    canvas.appendChild(vv);
 }
