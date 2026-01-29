@@ -265,6 +265,8 @@ function putNewVertex(canvas,x,y){
 
   vv.style.left = x + "px";
   vv.style.top = y + "px";
+  vv.style.display = "inline-block";
+  vv.title = "x:"+x+",y:"+y;
 
  // vv.offsetX = x;
  // vv.offsetY = y;
