@@ -1,6 +1,9 @@
 
 function getNewVertex(canvas){
 
+  e("canvas-width").value = canvas.width;
+  e("canvas-height").value = canvas.height;
+
 canvas.ondblclick = function(){
 
   if(e("object_name").value){
@@ -45,7 +48,7 @@ alert("insert object name");
       var x_c = parseInt(event.clientX)+parseInt(e("x_cursor").value?e("x_cursor").value:"0");
       var y_c = parseInt(event.clientY)+parseInt(e("y_cursor").value?e("y_cursor").value:"0");
    
-   e("x_axis").value = x_c;
+   e("x_axis").value = event.offsetX;
    e("y_axis").value = y_c;
    
 });
