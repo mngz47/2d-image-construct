@@ -224,23 +224,28 @@ function putNewVertex(canvas,x,y){
 
  var vv =  ne("label");
 
-  vv.style.position = "absolute";
+  vv.style.position = "relative";
   vv.style.borderRadius = "40%";
   vv.style.width = "10px";
   vv.style.height = "10px";
   vv.style.backgroundColor = "black";
 
-  vv.style.left = x;
-  vv.style.top = y;
+  //vv.style.left = x;
+  //vv.style.top = y;
+
+  vv.offsetX = x;
+  vv.offsetY = y;
   
    canvas.appendChild(vv);
 }
 
 function putNewVertexElement(canvas,x,y,element){
 
-  element.style.position = "absolute";
-  element.style.left = x;
-  element.style.top = y;
+  element.style.position = "relative";
+  //element.style.left = x;
+  //element.style.top = y;
+    element.offsetX = x;
+    element.offsetY = y;
   element.style.borderRadius = "40%";
   canvas.appendChild(element);
 }
