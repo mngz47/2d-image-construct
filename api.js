@@ -41,9 +41,12 @@ alert("insert object name");
 };
   
  canvas.addEventListener('mousemove', function(event) {
-     
-   e("x_axis").value = event.clientX;
-   e("y_axis").value = event.clientY;
+
+      var x_c = parseInt(event.clientX)+parseInt(e("x_cursor").value?e("x_cursor").value:"0");
+      var y_c = parseInt(event.clientY)+parseInt(e("y_cursor").value?e("y_cursor").value:"0");
+   
+   e("x_axis").value = x_c;
+   e("y_axis").value = y_c;
    
 });
 }
