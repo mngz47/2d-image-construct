@@ -230,11 +230,11 @@ function putNewVertex(canvas,x,y){
   vv.style.height = "10px";
   vv.style.backgroundColor = "black";
 
-  //vv.style.left = x;
-  //vv.style.top = y;
+  vv.style.left = x + "px";
+  vv.style.top = y + "px";
 
-  vv.offsetX = x;
-  vv.offsetY = y;
+ // vv.offsetX = x;
+ // vv.offsetY = y;
   
    canvas.appendChild(vv);
 }
@@ -242,10 +242,10 @@ function putNewVertex(canvas,x,y){
 function putNewVertexElement(canvas,x,y,element){
 
   element.style.position = "relative";
-  //element.style.left = x;
-  //element.style.top = y;
-    element.offsetX = x;
-    element.offsetY = y;
+  element.style.left = x + "px";
+  element.style.top = y + "px";
+  //  element.offsetX = x;
+  //  element.offsetY = y;
   element.style.borderRadius = "40%";
   canvas.appendChild(element);
 }
