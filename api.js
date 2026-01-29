@@ -125,7 +125,7 @@ function scriptToCanvasElement(canvas,script,elements){
 
   canvas.style.width = "100%";
   canvas.style.height = "100%";
-  canvas.border = "1px solid black";
+  canvas.style.border = "1px solid black";
 
   
   var stc = script.value;
