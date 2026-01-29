@@ -125,7 +125,7 @@ function scriptToCanvasElement(canvas,script,elements){
   if(stc.includes("Vertex field")) {
 
     var vertexes = stc.split("Vertex field");
-    for(var a=1;(a<vertexes.length && elements.length);a++){
+    for(var a=1;(a<vertexes.length && a<elements.length);a++){
 
       if(vertexes[a].includes("x_axis")){
       if(vertexes[a].includes("y_axis")){
@@ -225,7 +225,7 @@ function putNewVertex(canvas,x,y){
 
 function putNewVertexElement(canvas,x,y,element){
 
-  element.style.position = "absolute";
+  element.style.position = "relative";
   element.style.left = x;
   element.style.top = y;
   canvas.appendChild(element);
