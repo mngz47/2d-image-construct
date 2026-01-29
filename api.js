@@ -115,8 +115,6 @@ alert("Insert script");
 
 function scriptToCanvasElement(canvas,script,elements){
 
-  canvas.innerHTML = "";
-
   var stc = script.value;
   
   if(stc!=""){
@@ -125,6 +123,9 @@ function scriptToCanvasElement(canvas,script,elements){
   if(stc.includes("Vertex field")) {
 
     var vertexes = stc.split("Vertex field");
+
+    canvas.innerHTML = "<p>vertexes("+vertexes.length+"),elements("+elements.length+")</p>";
+
     for(var a=1;(a<vertexes.length && a<elements.length);a++){
 
       if(vertexes[a].includes("x_axis")){
@@ -142,6 +143,8 @@ function scriptToCanvasElement(canvas,script,elements){
         alert("'x_axis "+a+"' not found");
       } 
     }
+
+    
   }else{
 alert("'Vertex field' not found");
   } 
