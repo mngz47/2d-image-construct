@@ -111,6 +111,53 @@ alert("Insert script");
   }
 }
 
+
+
+function scriptToCanvasElement(canvas,script,elements){
+
+  canvas.innerHTML = "";
+
+  var stc = script.value;
+  
+  if(stc!=""){
+  if(stc.includes("Define 2d object")) {
+  if(stc.includes("Object name")) {
+  if(stc.includes("Vertex field")) {
+
+    var vertexes = stc.split("Vertex field");
+    for(var a=1;(a<vertexes.length && elements.length);a++){
+
+      if(vertexes[a].includes("x_axis")){
+      if(vertexes[a].includes("y_axis")){
+
+                var x = parseInt(vertexes[a].substring(vertexes[a].indexOf("x_axis")+6,vertexes[a].indexOf("y_axis")).trim());
+                var y = parseInt(vertexes[a].substring(vertexes[a].indexOf("y_axis")+6,vertexes[a].length).trim());
+                
+                putNewVertexElement(canvas,x,y,elements[a]);
+          
+      }else{
+        alert("'y_axis "+a+"' not found");
+      } 
+      }else{
+        alert("'x_axis "+a+"' not found");
+      } 
+    }
+  }else{
+alert("'Vertex field' not found");
+  } 
+  }else{
+alert("'Object name' not found");
+  } 
+  }else{
+alert("'Define 2d object' not found");
+  }
+  }else{
+alert("Insert script");
+  }
+}
+
+
+
 function connectVertexes(canvas,x1,y1,x2,y2){
 //  <line x1="0" y1="0" x2="300" y2="200" style="stroke:red;stroke-width:2" />
 
@@ -174,6 +221,14 @@ function putNewVertex(canvas,x,y){
   vv.style.top = y_c.toString();
   
    canvas.appendChild(vv);
+}
+
+function putNewVertexElement(canvas,x,y,element){
+
+  element.style.position = "absolute";
+  element.style.left = x;
+  element.style.top = y;
+  canvas.appendChild(element);
 }
 
 e("show_on_canvas").onclick = function(){
