@@ -228,6 +228,7 @@ function putNewVertexElement(canvas,x,y,element){
   element.style.position = "relative";
   element.style.left = x;
   element.style.top = y;
+  element.style.borderRadius = "40%";
   canvas.appendChild(element);
 }
 
