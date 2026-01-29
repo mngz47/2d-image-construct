@@ -115,8 +115,12 @@ alert("Insert script");
 
 function scriptToCanvasElement(canvas,script,elements){
 
-  var stc = script.value;
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+
   
+  var stc = script.value;
+
   if(stc!=""){
   if(stc.includes("Define 2d object")) {
   if(stc.includes("Object name")) {
