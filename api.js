@@ -152,11 +152,6 @@ alert("Insert script");
 
 function scriptToCanvasElement(canvas,script,elements){
 
-  canvas.style.width = "100%";
-  canvas.style.height = "100%";
-  canvas.style.border = "1px solid black";
-
-  
   var stc = script.value;
 
   if(stc!=""){
@@ -164,9 +159,18 @@ function scriptToCanvasElement(canvas,script,elements){
   if(stc.includes("Object name")) {
   if(stc.includes("Vertex field")) {
 
-    var vertexes = stc.split("Vertex field");
+   var vertexes = stc.split("Vertex field");
+    
 
-    canvas.innerHTML = "<p>vertexes("+vertexes.length+"),elements("+elements.length+")</p>";
+//setup canvas on third party function
+    
+canvas.style.width = vertexes[0].substring(vertexes[0].indexOf("Canvas width"),vertexes[0].indexOf("Canvas height")).trim() + "px";
+  canvas.style.height = vertexes[0].substring(vertexes[0].indexOf("Canvas height"),vertexes[0].length).trim() + "px";
+  canvas.style.border = "1px solid black";
+    canvas.style.marginLeft = "auto";
+    canvas.style.marginRight = "auto";
+
+    canvas.innerHTML = "<p style='font-size:20px;' >vertexes("+vertexes.length+"),elements("+elements.length+")</p>";
 
     for(var a=1;(a<vertexes.length && a<elements.length);a++){
 
