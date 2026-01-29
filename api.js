@@ -29,7 +29,8 @@ canvas.ondblclick = function(){
     if(e("object_script_txt").value.trim()==""){
  e("object_script_txt").value =
             "Define 2d object" +
-"Object name" + " " + e("object_name").value; 
+"Object name" + " " + e("object_name").value +
+       "Canvas width "+e("canvas-width").value+"Canvas height "+e("canvas-height").value;
     }
 
   e("object_script_txt").value +=   
@@ -54,6 +55,34 @@ alert("insert object name");
    e("y_axis").value = event.offsetY;
    
 });
+
+e("canvas-width").addEventListener('onblur', function(event) {
+
+ updateCanvasProperties();
+  
+});
+
+  e("canvas-height").addEventListener('onblur', function(event) {
+
+ updateCanvasProperties();
+  
+});
+  
+}
+
+
+function updateCanvasProperties(){
+ var cc =  e("object_script_txt").value.split("Vertex field");
+
+ e("object_script_txt").value = 
+   cc[0].substring(0,cc[0].indexOf("Canvas width")) +
+  "Canvas width "+e("canvas-width").value+"Canvas height "+e("canvas-height").value;
+   
+    var vertexes = e("object_script_txt").value.split("Vertex field");
+    for(var a=1;(a<vertexes.length);a++){
+
+      e("object_script_txt").value += vertexes[a];
+    } 
 }
 
     var p_x;
