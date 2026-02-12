@@ -166,6 +166,8 @@ function scriptToCanvasElement(canvas,script,elements){
     
 canvas.style.width = vertexes[0].substring(vertexes[0].indexOf("Canvas width")+12,vertexes[0].indexOf("Canvas height")).trim() + "px";
   canvas.style.height = vertexes[0].substring(vertexes[0].indexOf("Canvas height")+13,vertexes[0].length).trim() + "px";
+    alert(canvas.style.width+" "+canvas.style.height);
+    
   canvas.style.border = "1px solid black";
     canvas.style.marginLeft = "auto";
     canvas.style.marginRight = "auto";
