@@ -337,5 +337,49 @@ e("show_on_canvas").onclick = function(){
     scriptToCanvas();
   };
 
+
+
+function moveObject(canvas,direction,speed){
+
+  var vertexes  =  e("2d-canvas").getElementsByTagName("label");
+  for(var a=1;(a<vertexes.length);a++){
+
+   vertexes.style.left =  vertexes.style.left + 20;
+   vertexes.style.top = vertexes.style.top + 20;
+    
+                 e("object_script_txt").value+= 
+                   "Move\n"+
+"Direction"  + direction +
+"Speed "  + speed;
+      
+}
+
+  updateCanvasToScript();
+}
+
+
+
+
+function updateCanvasToScript(){
+ var cc =  e("object_script_txt").value.split("Vertex field");
+
+ e("object_script_txt").value = 
+   cc[0].substring(0,cc[0].indexOf("Canvas width")) +
+  "Canvas width "+e("canvas-width").value+"Canvas height "+e("canvas-height").value;
+
+//fff
+
+  var vertexes  =  e("2d-canvas").getElementsByTagName("label");
+  for(var a=1;(a<vertexes.length);a++){
+
+     
+                 e("object_script_txt").value+= 
+                   "Vertex field\n"+
+"x_axis" + " " + vertexes.style.left +
+"y_axis" + " " + vertexes.style.top;
+      
+}
+}
+
  getNewVertex(e("2d-canvas"));
 
