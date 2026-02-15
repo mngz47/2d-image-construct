@@ -20,8 +20,8 @@
 	<strong>canvas:</strong>
 	<input type=text id=canvas-width placeholder=canvas-width />
 	<input type=text id=canvas-height placeholder=canvas-height /> 
-	<a href=# onclick=canvasZoomIn(); >Zoom In</a>
-	<a href=# onclick=canvasZoomOut(); >Zoom Out</a>
+	<a class=block href=# onclick=canvasZoomIn(); >Zoom In</a>
+	<a class=block href=# onclick=canvasZoomOut(); >Zoom Out</a>
 </p>
 		<div id=2d-canvas style="width:100%;height:100%;border:1px solid black;margin-left:auto;margin-right:auto;" xmlns="http://www.w3.org/2000/svg">
  		</div>	
@@ -43,7 +43,7 @@
       <input style="width:100%;height:30px;border:0px;padding:4px;" type=text class=" shadow" id=y_axis placeholder="y_axis" />   
 
 	  
-    <div id=quick_shape > 
+    <div class="block space" id=quick_shape > 
       <p>Quick Shape</p>
         <a href=# >Square</a>
         <a href=# >Circle</a>
@@ -55,7 +55,7 @@
     <div id=vertexes style="position:absolute;" ></div> 
 	 -->
 
-	<div id=movement >
+	<div class="space" id=movement >
 		<strong>movement:</strong>
 	<select id=m_direction placeholder=direction >
 			<option value=up >up</option>
