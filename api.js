@@ -1,3 +1,6 @@
+//Movement 216
+
+
 
 function getNewVertex(canvas){
 
@@ -197,6 +200,9 @@ canvas.style.width = vertexes[0].substring(vertexes[0].indexOf("Canvas width")+1
       } 
     }
 
+
+    moveObjectUseScript(canvas,stc);
+
     
   }else{
 alert("'Vertex field' not found");
@@ -212,7 +218,41 @@ alert("Insert script");
   }
 }
 
+//Animation - Movement
 
+function moveObjectUseScript(canvas,stc){
+
+// e("object_script_txt").value+= 
+//                   "Movement\n"+
+//"Direction"  + direction +
+//"Speed "  + speed;
+  
+  if(stc.includes("Movement")){
+
+var moves = stc.split("Movement");
+
+for(var a=1;a<moves.length;a++){
+      if(moves[a].includes("Direction")){
+          if(moves[a].includes("Speed")){
+
+            var direction = move[a].substring(move[a].indexOf("Direction")+9,move[a].indexOf("Speed"));
+            var speed = move[a].substring(move[a].indexOf("Speed")+5,move[a].length);
+
+            moveObject(canvas,direction,speed);
+            
+      }else{
+          alert("Speed not found move: "+a);
+      }
+
+      }else{
+          alert("Direction not found move: "+a);
+      }
+}
+    
+    
+  }
+  
+}
 
 function connectVertexes(canvas,x1,y1,x2,y2){
 //  <line x1="0" y1="0" x2="300" y2="200" style="stroke:red;stroke-width:2" />
@@ -349,32 +389,32 @@ setTimeout(function(){
   for(var a=1;(a<vertexes.length);a++){
 
     if(direction="up"){
-  vertexes.style.top = vertexes.style.top + 20;
+  vertexes[a].style.top = vertexes[a].style.top + 20;
       
     }else if(direction="down"){
-  vertexes.style.top = vertexes.style.top - 20;
+  vertexes[a].style.top = vertexes[a].style.top - 20;
       
     }else if(direction="left"){
-  vertexes.style.left =  vertexes.style.left + 20;
+  vertexes[a].style.left =  vertexes[a].style.left + 20;
  
     }else if(direction="right"){
-  vertexes.style.left =  vertexes.style.left - 20;
+  vertexes[a].style.left =  vertexes[a].style.left - 20;
  
     }else if(direction="in"){
 
-vertexes.style.top = vertexes.style.top + vertexes.style.top*0.2;
-vertexes.style.left =  vertexes.style.left + vertexes.style.left*0.2;
+vertexes[a].style.top = vertexes[a].style.top + vertexes[a].style.top*0.2;
+vertexes[a].style.left =  vertexes[a].style.left + vertexes[a].style.left*0.2;
       
     }else if(direction="out"){
 
-vertexes.style.top = vertexes.style.top - vertexes.style.top*0.2;
-vertexes.style.left =  vertexes.style.left - vertexes.style.left*0.2;
+vertexes[a].style.top = vertexes[a].style.top - vertexes[a].style.top*0.2;
+vertexes[a].style.left =  vertexes[a].style.left - vertexes[a].style.left*0.2;
       
     }
  
     
                  e("object_script_txt").value+= 
-                   "Move\n"+
+                   "Movement\n"+
 "Direction"  + direction +
 "Speed "  + speed;
       
@@ -403,8 +443,8 @@ function updateCanvasToScript(){
      
                  e("object_script_txt").value+= 
                    "Vertex field\n"+
-"x_axis" + " " + vertexes.style.left +
-"y_axis" + " " + vertexes.style.top;
+"x_axis" + " " + vertexes[a].style.left +
+"y_axis" + " " + vertexes[a].style.top;
       
 }
 }
