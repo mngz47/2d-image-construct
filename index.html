@@ -19,13 +19,16 @@
 	<div class=col-sm-2 >
 
 		<strong>movement:</strong>
-	<input type=text placeholder=up />
-	<input type=text placeholder=down />
-		<input type=text placeholder=left />
-		<input type=text placeholder=right />
-		<input type=text placeholder=in />
-		<input type=text placeholder=out />
-		 <button>move</button>
+	<select id=m_direction placeholder=direction >
+			<option value=up >up</option>
+			<option value=down >down</option>
+			<option checked=true value=left >left</option>
+			<option value=right >right</option>
+			<option value=in >in</option>
+			<option value=out >out</option>
+	</select>
+	<input type=number value=2 id=m_speed placeholder=speed />
+		 <button onclick="moveObject(e('2d-canvas'),e('m_direction').value,e('m_speed').value);" >put move</button>
 	</div>
     <div class=col-sm-6 >
 <p id=canvas-controls >
