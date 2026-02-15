@@ -181,8 +181,13 @@ canvas.style.width = vertexes[0].substring(vertexes[0].indexOf("Canvas width")+1
 
                 var x = parseInt(vertexes[a].substring(vertexes[a].indexOf("x_axis")+6,vertexes[a].indexOf("y_axis")).trim());
                 var y = parseInt(vertexes[a].substring(vertexes[a].indexOf("y_axis")+6,vertexes[a].length).trim());
-                
-                putNewVertexElement(canvas,x,y,elements[a]);
+
+//align elements to canvas based on screen size
+        
+                var x_align = x - canvas.offsetX;
+                var y_align = y - canvas.offsetY;
+        
+                putNewVertexElement(canvas,x_align,y_align,elements[a]);
           
       }else{
         alert("'y_axis "+a+"' not found");
@@ -270,14 +275,51 @@ function putNewVertex(canvas,x,y){
   vv.style.display = "inline-block";
   vv.title = "x:"+x+",y:"+y;
 
+  vv.draggable="true";
+  vv.ondrag="moveVertex(event)";
+
  // vv.offsetX = x;
  // vv.offsetY = y;
   
    canvas.appendChild(vv);
 }
 
+
+function moveVertex(event){
+
+ updateCanvasVertex(event.target.id,event.target.style.left, event.target.style.top);
+
+}
+
+
+
+function updateCanvasVertex(vertex_id,x,y){
+ var cc =  e("object_script_txt").value.split("Vertex field");
+
+ e("object_script_txt").value = 
+   cc[0].substring(0,cc[0].indexOf("Canvas width")) +
+  "Canvas width "+e("canvas-width").value+"Canvas height "+e("canvas-height").value;
+   
+    var vertexes = e("object_script_txt").value.split("Vertex field");
+    for(var a=1;(a<vertexes.length);a++){
+
+      if(a==vertex_id){
+                 e("object_script_txt").value+= 
+                   "Vertex field\n"+
+"x_axis" + " " + x+
+"y_axis" + " " + y;
+      }else{
+                e("object_script_txt").value += vertexes[a];
+  
+      }
+    } 
+}
+
+var vertex_id = 1;
+
 function putNewVertexElement(canvas,x,y,element){
 
+  element.id = vertex_id;
   element.style.position = "relative";
   element.style.left = x + "px";
   element.style.top = y + "px";
@@ -287,6 +329,8 @@ function putNewVertexElement(canvas,x,y,element){
   //  element.offsetY = y;
   element.style.borderRadius = "40%";
   canvas.appendChild(element);
+
+  vertex_id += 1;
 }
 
 e("show_on_canvas").onclick = function(){
