@@ -341,11 +341,37 @@ e("show_on_canvas").onclick = function(){
 
 function moveObject(canvas,direction,speed){
 
-  var vertexes  =  e("2d-canvas").getElementsByTagName("label");
+//setTimeout(functionToRun, delayInMilliseconds,
+  
+setTimeout(function(){
+
+ var vertexes  =  e("2d-canvas").getElementsByTagName("label");
   for(var a=1;(a<vertexes.length);a++){
 
-   vertexes.style.left =  vertexes.style.left + 20;
-   vertexes.style.top = vertexes.style.top + 20;
+    if(direction="up"){
+  vertexes.style.top = vertexes.style.top + 20;
+      
+    }else if(direction="down"){
+  vertexes.style.top = vertexes.style.top - 20;
+      
+    }else if(direction="left"){
+  vertexes.style.left =  vertexes.style.left + 20;
+ 
+    }else if(direction="right"){
+  vertexes.style.left =  vertexes.style.left - 20;
+ 
+    }else if(direction="in"){
+
+vertexes.style.top = vertexes.style.top + vertexes.style.top*0.2;
+vertexes.style.left =  vertexes.style.left + vertexes.style.left*0.2;
+      
+    }else if(direction="out"){
+
+vertexes.style.top = vertexes.style.top - vertexes.style.top*0.2;
+vertexes.style.left =  vertexes.style.left - vertexes.style.left*0.2;
+      
+    }
+ 
     
                  e("object_script_txt").value+= 
                    "Move\n"+
@@ -353,7 +379,9 @@ function moveObject(canvas,direction,speed){
 "Speed "  + speed;
       
 }
-
+  
+},speed*1000);
+  
   updateCanvasToScript();
 }
 
